@@ -9,7 +9,7 @@ export class ProductTypeService {
     private readonly productTypeRepository: ProductTypeRepository,
   ) {}
 
-  async isNotExist(typeId: number) {
+  async isNotExist(typeId: number): Promise<boolean> {
     const r = await this.productTypeRepository.findOne({id: typeId})
     return r === undefined
   }

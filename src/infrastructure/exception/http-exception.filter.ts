@@ -24,10 +24,13 @@ export class HttpExceptionFilter implements ExceptionFilter {
     }
 
     if (exception instanceof HttpException) {
-      const {statusCode, message} = exception.getResponse() as IExceptionResponse
+      const exceptionResponse = exception.getResponse() as IExceptionResponse
+      const status = exception.getStatus()
+      const message = typeof exceptionResponse === 'string' ? exceptionResponse : exceptionResponse.message
+
       return response
-        .status(statusCode)
-        .json({status: statusCode, message: message})
+        .status(status)
+        .json({status: status, message: message})
     }
 
     if (exception instanceof EntityNotFoundError) {
@@ -36,7 +39,7 @@ export class HttpExceptionFilter implements ExceptionFilter {
         .json({status: HttpStatus.NOT_FOUND, message: exception.message})
     }
 
-    response
+    return response
       .status(HttpStatus.INTERNAL_SERVER_ERROR)
       .json({
         status: HttpStatus.INTERNAL_SERVER_ERROR,
