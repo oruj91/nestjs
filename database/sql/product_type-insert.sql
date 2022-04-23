@@ -1,0 +1,4 @@
+INSERT INTO nestjs.product_type (id, name, isPublished, createdAt, updatedAt, deletedAt) VALUES (1, 'Military aircraft', 1, '2021-03-29 18:00:00', '2021-03-29 18:00:00', null);
+INSERT INTO nestjs.product_type (id, name, isPublished, createdAt, updatedAt, deletedAt) VALUES (2, 'Helicopter', 1, '2021-03-29 18:00:00', '2021-03-29 18:00:00', null);
+INSERT INTO nestjs.product_type (id, name, isPublished, createdAt, updatedAt, deletedAt) VALUES (3, 'Tank', 1, '2021-03-29 18:00:00', '2021-03-29 18:00:00', null);
+INSERT INTO nestjs.product_type (id, name, isPublished, createdAt, updatedAt, deletedAt) VALUES (4, 'Car', 1, '2021-03-29 18:00:00', '2021-03-29 18:00:00', null);
